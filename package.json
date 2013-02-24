@@ -1,0 +1,31 @@
+{
+  "name": "unio",
+  "version": "0.0.0",
+  "description": "One REST API spec for All.",
+  "main": "lib/unio.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec -t 10000 --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ttezel/unio"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "spec",
+    "fb",
+    "twitter",
+    "oauth"
+  ],
+  "author": "Tolga Tezel",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "~1.8.1",
+    "request": "~2.14.0",
+    "seq": "~0.3.5"
+  }
+}

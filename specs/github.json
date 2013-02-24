@@ -1,0 +1,22 @@
+{
+    "name": "github",
+    "api_root": "https://api.github.com",
+    "resources": {
+        "/user": {
+            "methods": [ "get" ],
+            "params": [
+                {
+                    "access_token": "required"
+                }
+            ]
+        },
+        "/users": {
+            "methods": [ "get" ],
+            "params": [
+                {
+                    "access_token": "required"
+                }
+            ]
+        }
+    }
+}

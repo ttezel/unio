@@ -49,6 +49,8 @@ Tells the `unio` client that the next HTTP request you make will be to `service`
     
 Adds a new REST API spec, described by `specObject`, to the `unio` client. Allows it the `use` it and make `get`, `post`, `put`, and `delete` requests to the REST API described by `specObject`.
 
+See the [Facebook JSON spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter JSON spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. The specs that `unio` supports are in the `specs` folder.
+
 ##`.get(resource, [ params, callback ])`
 
 **GET** a REST API `resource`, with optional params object (which will get url-encoded for you), and an optional `callback`, that has the following signature: `function (err, reply)`.
@@ -64,6 +66,15 @@ See `.get()` -> same thing but using **PUT**.
 ##`.delete(resource, [ params, callback ])`
 
 See `.get()` -> same thing but using **DELETE**.
+
+
+-------
+
+## Running the tests
+
+```
+npm test
+```
 
 -------
 

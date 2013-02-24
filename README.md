@@ -2,7 +2,7 @@
 
 `One REST API Spec for All.`
 
-This repo is the `Unio` REST API client - it implements the **Facebook** APIs, and supports any REST API that can be described in JSON.
+This repo is the `Unio` REST API client - it currently implements the **Facebook**, **Twitter** and **Github** APIs, and supports any REST API that can be described in JSON.
 
 The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be trivially implemented by the `unio` client - making the implementation time for new REST APIs as close to **zero** as possible. See [the blog post](http://ttezel.github.com) motivating this client, and feel free to fork and add new REST API specs!
 
@@ -29,6 +29,38 @@ unio()
         console.log('first search result', reply.data[0])
     })
 
+// with the twitter API
+unio()
+    .use('twitter')
+    .post('statuses/update', { status: 'tweeting with unio'}, function (err, reply) {
+        //...
+    })
+
+// with the github API
+unio()
+    .use('github')
+    .get('user', { access_token: 'ACCESS-TOKEN' }, function (err, reply) {
+        //...
+    })
+
+var apiSpec = {
+    name: 'new-api-spec,
+    api_root: 'http://api.something.com',
+    resources: {
+        "some/resource": {
+            "methods": [ "post" ],
+            "params": [
+                {
+                    "foo": "required"
+                },
+                {
+                    "bar": "optional"
+                },
+            ]
+        }
+    }
+}
+
 // add a new REST API spec to unio
 unio()
     .spec(apiSpec)
@@ -36,6 +68,15 @@ unio()
     .post('some_resource', function (err, reply) {
         //...
     })
+
+// import a JSON spec from the local filesystem
+unio()
+    .spec('./path/to/json/file')
+    .use('myspec')
+    .post('blah', function (err, reply) {
+        //...
+    })
+
 
 ```
 
@@ -45,11 +86,11 @@ unio()
 
 Tells the `unio` client that the next HTTP request you make will be to `service`.
 
-##`.spec(specObject)`
+##`.spec(spec)`
     
-Adds a new REST API spec, described by `specObject`, to the `unio` client. Allows it the `use` it and make `get`, `post`, `put`, and `delete` requests to the REST API described by `specObject`.
+Adds a new REST API spec, described by `spec`, to the `unio` client. Allows it the `use` it and make `get`, `post`, `put`, and `delete` requests to the REST API described by `spec`. It can be a regular Javascript `Object`, `Array`, or `String` that is a path to a JSON file.
 
-See the [Facebook JSON spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter JSON spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. The specs that `unio` supports are in the `specs` folder.
+The specs that `unio` currently supports are in the `specs` folder. See the [Facebook spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. 
 
 ##`.get(resource, [ params, callback ])`
 

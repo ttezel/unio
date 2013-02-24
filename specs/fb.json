@@ -2,7 +2,7 @@
     "name": "fb",
     "api_root": "https://graph.facebook.com",
     "resources": {
-        "/:id": {
+        ":id": {
             "methods": [ "get" ],
             "params": [
                 {
@@ -13,7 +13,7 @@
                 }
             ]
         },
-        "/me": {
+        "me": {
             "methods": [ "get" ],
             "params": [
                 {

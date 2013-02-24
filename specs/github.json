@@ -2,7 +2,7 @@
     "name": "github",
     "api_root": "https://api.github.com",
     "resources": {
-        "/user": {
+        "user": {
             "methods": [ "get" ],
             "params": [
                 {
@@ -10,7 +10,7 @@
                 }
             ]
         },
-        "/users": {
+        "users": {
             "methods": [ "get" ],
             "params": [
                 {

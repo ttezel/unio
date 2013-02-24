@@ -2,7 +2,7 @@
     "name": "twitter",
     "api_root": "https://api.twitter.com/1.1",
     "resources": {
-        "/statuses/update.json": {
+        "statuses/update.json": {
             "methods": [ "post" ],
             "params": [
                 {

@@ -1,8 +1,5 @@
 {
     "name": "fb",
-    "auth": {
-        "output": [ "access_token" ]
-    },
     "api_root": "https://graph.facebook.com",
     "resources": {
         "/:id": {
@@ -10,6 +7,17 @@
             "params": [
                 {
                     "q": "optional"
+                },
+                {
+                    "access_token": "required"
+                }
+            ]
+        },
+        "/me": {
+            "methods": [ "get" ],
+            "params": [
+                {
+                    "fields": "optional"
                 },
                 {
                     "access_token": "required"

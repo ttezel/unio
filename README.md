@@ -2,19 +2,17 @@
 
 `One REST API Spec for All.`
 
-This repo is the `Unio` REST API client - it implements the **Facebook** APIs, and supports any REST API that is `Unio`-compliant.
+This repo is the `Unio` REST API client - it implements the **Facebook** APIs, and supports any REST API that can be described in JSON.
 
-The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be trivially implemented by the `unio` client -> making the implementation time for new REST APIs **zero**. See 
+The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be trivially implemented by the `unio` client - making the implementation time for new REST APIs as close to **zero** as possible. See [the blog post](http://ttezel.github.com) motivating this client, and feel free to fork and add new REST API specs!
 
-See: 
-
-#Install:
+#Install
 
 ```
 npm install unio
 ```
 
-#Usage:
+#Usage
 
 ```javascript
 var unio = require('unio')

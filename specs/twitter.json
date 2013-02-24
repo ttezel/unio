@@ -1,0 +1,32 @@
+{
+    "name": "twitter",
+    "api_root": "https://api.twitter.com/1.1",
+    "resources": {
+        "/statuses/update.json": {
+            "methods": [ "post" ],
+            "params": [
+                {
+                    "status": "required"
+                },
+                {
+                    "in_reply_to_status_id": "optional"
+                },
+                {
+                    "lat": "optional"
+                },
+                {
+                    "long": "optional"
+                },
+                {
+                    "place_id": "optional"
+                },
+                {
+                    "display_coordinates": "optional"
+                },
+                {
+                    "trim_user": "optional"
+                }
+            ]
+        }
+    }
+}

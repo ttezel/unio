@@ -2,7 +2,20 @@
     "name": "twitter",
     "api_root": "https://api.twitter.com/1.1",
     "resources": {
-        "statuses/update.json": {
+        "followers/ids": {
+            "path": "followers/ids.json",
+            "methods": [ "get" ],
+            "params": [
+                {
+                    "screen_name": "optional"
+                },
+                {
+                    "oauth": "required"
+                }
+            ]
+        },
+        "statuses/update": {
+            "path": "statuses/update.json",
             "methods": [ "post" ],
             "params": [
                 {
@@ -26,6 +39,48 @@
                 {
                     "trim_user": "optional"
                 }
+            ]
+        },
+        "search": {
+            "path": "http://search.twitter.com/search.json",
+            "methods": [ "get" ],
+            "params": [
+                {
+                    "q": "required"
+                },
+                {
+                    "callback": "optional"
+                },
+                {
+                    "geocode": "optional"
+                },
+                {
+                    "lang": "optional"
+                },
+                {
+                    "locale": "optional"
+                },
+                {
+                    "page": "optional"
+                },
+                {
+                    "result_type": "optional"
+                }
+
+            ]
+        },
+        "statuses/home_timeline": {
+            "path": "statuses/home_timeline.json",
+            "methods": [ "get" ],
+            "params": [
+        
+            ]
+        },
+        "statuses/destroy/:id": {
+            "path": "statuses/destroy/:id.json",
+            "methods": [ "post" ],
+            "params": [
+
             ]
         }
     }

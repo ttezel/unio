@@ -2,7 +2,8 @@
 
 ##`One REST API Spec for All.`
 
-The `Unio` client is an easily-extensible HTTP REST API client that implements the **Facebook**, **Twitter** and **Github** APIs, and supports any REST API that can be described in JSON.
+
+The `Unio` client is an easily-extensible REST API Client that implements the **Facebook**, **Twitter** and **Github** APIs, and supports any REST API that can be described in JSON.
 
 The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be imported into `unio`, and it will know automatically how to talk to the web service from the JSON spec. You can simply import the spec, and start making requests to the API right away. This makes it easy for you to test, use and reuse REST APIs by saving you the time of writing a new client for every service that pops up.
 
@@ -19,19 +20,32 @@ npm install unio
 ```javascript
 var unio = require('unio')
 
+//
+// with the Facebook Search API
+//
 var params = {
     q: 'coffee',
     access_token: 'YOUR_FB_ACCESS_TOKEN'
 }
 
-// with the facebook search API
 unio()
     .use('fb')
     .get('search', params, function (err, reply) {
         console.log('first search result', reply.data[0])
     })
 
-// with the twitter API
+//
+// with the Twitter Search API
+//
+unio()
+    .use('twitter')
+    .get('search', { q: 'banana' }, function (err, reply) {
+        console.log('search results:', reply)
+    })
+
+//
+// use the Twitter REST API to post a tweet
+//
 var params = {
     status: 'tweeting using unio! :)',
     oauth: {
@@ -48,20 +62,28 @@ unio()
         //...
     })
 
-// with the twitter Search API
-unio()
-    .use('twitter')
-    .get('search', { q: 'banana' }, function (err, reply) {
-        console.log('search results:', reply)
-    })
-
-// with the github API
+//
+// with the Github API
+//
 unio()
     .use('github')
     .get('user', { access_token: 'ACCESS-TOKEN' }, function (err, reply) {
         //...
     })
 
+//
+// import a JSON spec from the local filesystem
+//
+unio()
+    .spec('./path/to/json/file')
+    .use('myspec')
+    .post('blah', function (err, reply) {
+        //...
+    })
+
+//
+// add a new spec directly
+//
 var apiSpec = {
     name: 'api-name',
     api_root: 'http://api.something.com',
@@ -81,19 +103,10 @@ var apiSpec = {
     }
 }
 
-// add a new REST API spec to unio
 unio()
     .spec(apiSpec)
     .use('api-name')
     .post('some/resource', function (err, reply) {
-        //...
-    })
-
-// import a JSON spec from the local filesystem
-unio()
-    .spec('./path/to/json/file')
-    .use('myspec')
-    .post('blah', function (err, reply) {
         //...
     })
 

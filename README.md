@@ -46,6 +46,13 @@ unio()
         //...
     })
 
+// with the twitter Search API
+unio()
+    .use('twitter')
+    .get('search', { q: 'banana' }, function (err, reply) {
+        console.log('search results:', reply)
+    })
+
 // with the github API
 unio()
     .use('github')

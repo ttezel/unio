@@ -1,10 +1,12 @@
 #unio
 
-`One REST API Spec for All.`
+##`One REST API Spec for All.`
 
-This repo is the `Unio` REST API client - it currently implements the **Facebook**, **Twitter** and **Github** APIs, and supports any REST API that can be described in JSON.
+The `Unio` client is an easily-extensible HTTP REST API client that implements the **Facebook**, **Twitter** and **Github** APIs, and supports any REST API that can be described in JSON.
 
-The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be trivially implemented by the `unio` client - making the implementation time for new REST APIs as close to **zero** as possible. See [the blog post](http://ttezel.github.com) motivating this client, and feel free to fork and add new REST API specs!
+The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be imported into `unio`, and it will know automatically how to talk to the web service from the JSON spec. You can simply import the spec, and start making requests to the API right away. This makes it easy for you to test, use and reuse REST APIs by saving you the time of writing a new client for every service that pops up.
+
+See [the blog post](http://ttezel.github.com) motivating this client, and feel free to fork and add new REST API specs!
 
 #Install
 
@@ -61,10 +63,11 @@ unio()
     })
 
 var apiSpec = {
-    name: 'new-api-spec,
+    name: 'api-name',
     api_root: 'http://api.something.com',
     resources: {
         "some/resource": {
+            "path": "some/resource"
             "methods": [ "post" ],
             "params": [
                 {
@@ -81,8 +84,8 @@ var apiSpec = {
 // add a new REST API spec to unio
 unio()
     .spec(apiSpec)
-    .use('newly-added-spec')
-    .post('some_resource', function (err, reply) {
+    .use('api-name')
+    .post('some/resource', function (err, reply) {
         //...
     })
 

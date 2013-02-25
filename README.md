@@ -30,9 +30,19 @@ unio()
     })
 
 // with the twitter API
+var params = {
+    status: 'tweeting using unio! :)',
+    oauth: {
+        consumer_key:       '...',
+        consumer_secret:    '...',
+        token:              '...',
+        token_secret:       '...',
+    }
+}
+
 unio()
     .use('twitter')
-    .post('statuses/update', { status: 'tweeting with unio'}, function (err, reply) {
+    .post('statuses/update', params, function (err, reply) {
         //...
     })
 

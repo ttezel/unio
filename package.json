@@ -1,6 +1,6 @@
 {
   "name": "unio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "One REST API spec for All.",
   "main": "lib/unio.js",
   "directories": {

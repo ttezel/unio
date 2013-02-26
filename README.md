@@ -133,6 +133,10 @@ The specs that `unio` currently supports are in the `specs` folder. See the [Fac
 
 See `.get()` -> same thing but using **POST**.
 
+##`.patch(resource, [ params, callback ])`
+
+See `.get()` -> same thing but using **PATCH**.
+
 ##`.put(resource, [ params, callback ])`
 
 See `.get()` -> same thing but using **PUT**.

@@ -2,6 +2,17 @@
     "name": "twitter",
     "api_root": "https://api.twitter.com/1.1",
     "resources": {
+        "account/settings":{
+            "path": "account/settings.json",
+            "methods": [ "get" ],
+            "params": [
+                {                    
+                },
+                {
+                    "oauth": "required"
+                }
+            ]
+        },
         "followers/ids": {
             "path": "followers/ids.json",
             "methods": [ "get" ],

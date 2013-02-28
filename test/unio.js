@@ -142,4 +142,25 @@ describe('unio', function () {
                 done()
             })
     })
+
+    it.skip('github API', function (done) {
+
+        var params = {
+            scopes: config.github.scopes,
+            oauth: {
+                client_id: config.github.client_id,
+                client_secret: config.github.client_secret
+            }
+        }
+
+        unio()
+            .use('github')
+            .get('authorizations', params, function (err, reply) {
+                assert.equal(err, null, util.inspect(err, true, 10, true))
+
+                console.log('github user reply', reply)
+
+                done()
+            })
+    })
 })

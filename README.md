@@ -16,6 +16,16 @@ Currently, the APIs implemented out-of-the-box with `unio` are:
 
 Feel free to fork and add new REST API specs!
 
+# Implementations
+
+Node.js:
+
+* [unio](https://github.com/ttezel/unio) by Tolga Tezel (@ttezel)
+    
+Python:
+	
+* [PyUnio](https://github.com/citruspi/PyUnio) by Mihir Singh (@citruspi)
+
 #Install
 
 ```

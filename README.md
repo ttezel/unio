@@ -133,13 +133,13 @@ Tells the `unio` client that the next HTTP request you make will be to `service`
 
 ##`.spec(spec)`
     
-Adds a new REST API spec, described by `spec`, to the `unio` client. Allows it the `use` it and make `get`, `post`, `put`, and `delete` requests to the REST API described by `spec`. It can be a regular Javascript `Object`, `Array`, or `String` that is a path to a JSON file.
+Adds a new REST API spec to the `unio` client. `Spec` can be a regular Javascript `Object` representing a REST API specification, an `Array` of API specifications, or a `String` that is a path to a JSON file.
 
-The specs that `unio` currently supports are in the `specs` folder. See the [Facebook spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. 
+The specs that `unio` currently supports out-of-the-box are in the `specs` folder. See the [Facebook spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. 
 
 ##`.get(resource, [ params, callback ])`
 
-**GET** a REST API `resource`, with optional params object (which will get url-encoded for you), and an optional `callback`, that has the following signature: `function (err, reply)`.
+**GET** a REST API `resource`, with optional params object (which will be url-encoded for you), and an optional `callback`, that has the following signature: `function (err, reply)`.
 
 ##`.post(resource, [ params, callback ])`
 

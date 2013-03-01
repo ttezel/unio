@@ -3,9 +3,16 @@
 ##`One REST API Client for All.`
 
 
-The `Unio` client is an easily-extensible REST API Client that implements the **Facebook**, **Twitter** and **Github** APIs, and supports any REST API that can be described in JSON.
+The `Unio` client is an easily-extensible REST API Client that supports any REST API that can be described in JSON.
 
-The initiative behind `unio` is to describe REST APIs in a simple, readable JSON file. This allows it to be imported into `unio`, and it will know automatically how to talk to the web service from the JSON spec. You can simply import the spec, and start making requests to the API right away. This makes it easy for you to test, use and reuse REST APIs by saving you the time of writing a new client for every service that pops up.
+The initiative behind `unio` is to describe REST APIs in simple, readable JSON files. This allows them to be imported into `unio`, and it will know automatically how to talk to the web service from the JSON spec. You can simply import the spec, and start making requests to the API right away. This makes it easy for you to test, use and reuse REST APIs by saving you the time of writing an API client for every new service that pops up.
+
+Currently, the APIs implemented out-of-the-box with `unio` are:
+
+* **Facebook**
+* **Twitter**
+* **Github**
+* **StackExchange**
 
 Feel free to fork and add new REST API specs!
 

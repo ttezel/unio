@@ -90,7 +90,7 @@ unio()
     })
 
 //
-// add a new spec directly
+// add a new spec
 //
 var apiSpec = {
     name: 'api-name',
@@ -108,7 +108,7 @@ var apiSpec = {
     ]
 }
 
-// now we can use the new spec and make a request
+// add the spec to the client, then use it and start making requests!
 unio()
     .spec(apiSpec)
     .use('api-name')

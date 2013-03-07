@@ -208,7 +208,11 @@ The `api_root` specifies the root url where the API resources are located.
 
 ###`resources` (Array)
 
-Array of API resources. Each entry in the `resources` array is an object containing:
+Array of API resources.
+
+##Defining a Resource
+
+Each object in the `resources` array represents a resource. Each resource must contain the following keys:
 
 ####`path` (String)
 

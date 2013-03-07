@@ -38,7 +38,7 @@ describe('unio', function () {
 
     var testTweetIdStr = null
 
-    it('facebook API - search', function (done) {
+    it.only('facebook API - search', function (done) {
 
         var authUrl = 'https://graph.facebook.com/oauth/access_token'
 

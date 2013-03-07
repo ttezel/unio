@@ -162,7 +162,7 @@ See `.get()` -> same thing but using **DELETE**.
 ##Defining a Unio Spec
 
 `unio` is intended to make it as easy/painless as possible to talk to HTTP APIs.
-Here's an example:
+Here's an example of what a spec looks like:
 
 ```javascript
 {
@@ -216,7 +216,7 @@ Each object in the `resources` array represents a resource. Each resource must c
 
 ####`path` (String)
 
-URI  where the resource is located.
+URI where the resource is located, without a leading slash (e.g. **posts/newest**) or a full URL (e.g. https://api.bar.com).
 
 ####`name` (String)
 

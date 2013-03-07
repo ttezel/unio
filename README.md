@@ -99,26 +99,23 @@ unio()
 var apiSpec = {
     name: 'api-name',
     api_root: 'http://api.something.com',
-    resources: {
-        "some/resource": {
-            "path": "some/resource"
-            "methods": [ "post" ],
-            "params": [
-                {
-                    "foo": "required"
-                },
-                {
-                    "bar": "optional"
-                },
-            ]
-        }
-    }
+    resources: [
+        {
+            path: 'some/resource',
+            methods: [ 'post' ],
+            params: {
+                foo: 'required',
+                bar: 'optional'
+            }
+        },
+        // other resource entries here...
+    ]
 }
 
 unio()
     .spec(apiSpec)
     .use('api-name')
-    .post('some/resource', function (err, reply) {
+    .post('some/resource', { foo: 123 }, function (err, reply) {
         //...
     })
 
@@ -127,19 +124,23 @@ unio()
 
 #API:
 
-##`.use(service)`
+##`.use(name)`
 
-Tells the `unio` client that the next HTTP request you make will be to `service`.
+Tells `unio` that the next request you make will be to the API whose spec has the name `name`.
 
 ##`.spec(spec)`
     
-Adds a new REST API spec to the `unio` client. `Spec` can be a regular Javascript `Object` representing a REST API specification, an `Array` of API specifications, or a `String` that is a path to a JSON file.
+Adds a new REST API spec to the `unio` client. `Spec` can be:
 
-The specs that `unio` currently supports out-of-the-box are in the `specs` folder. See the [Facebook spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. 
+* an **Object** representing an API specification
+* an **Array** of API specifications
+* a **String** that is a path to a JSON file
+
+The specs that `unio` currently supports out-of-the-box are in the **specs** folder. See the [Facebook spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Twitter spec](https://github.com/ttezel/unio/blob/master/specs/twitter.json) as examples. 
 
 ##`.get(resource, [ params, callback ])`
 
-**GET** a REST API `resource`, with optional params object (which will be url-encoded for you), and an optional `callback`, that has the following signature: `function (err, reply)`.
+**GET** a REST API `resource`, with optional params object for the request, and an optional `callback` that has the following signature: `function (err, reply)`.
 
 ##`.post(resource, [ params, callback ])`
 
@@ -157,6 +158,100 @@ See `.get()` -> same thing but using **PUT**.
 
 See `.get()` -> same thing but using **DELETE**.
 
+
+##Defining a Unio Spec
+
+`unio` is intended to make it as easy/painless as possible to talk to HTTP APIs.
+Here's an example:
+
+```javascript
+{
+    name: 'some-api',
+    api_root: 'http://api.something.com',
+    resources: [
+        {
+            path: 'users/:id',
+            methods: [ 'get', 'put' ],
+            params: {
+                id: 'required'
+            }
+        },
+        {
+            path: 'notes',
+            methods: [ 'post' ],
+            params: {
+                title: 'required',
+                text: 'required',
+                tags: 'optional'
+            }
+        }, 
+        {
+            name: 'friends',
+            path: 'friends.json',
+            methods: [ 'post' ],
+            params: {
+                id: 'required'
+            }
+        }  
+        // other resource entries here...
+    ]
+}
+```
+
+###`name` (String)
+
+Each `unio` spec must have a `name`. This allows you to **.use()** the spec and start making requests.
+
+###`api_root` (String)
+
+The `api_root` specifies the root url where the API resources are located.
+
+###`resources` (Array)
+
+Array of API resources. Each entry in the `resources` array is an object containing:
+
+####`path` (String)
+
+URI  where the resource is located.
+
+####`name` (String)
+
+Optional name of the resource. When you make a request with unio, for example with `.get(resource, ...)`, you can specify the resource by its `name` value rather than by its `path`. Think of it like an alias `path` value for the resource.
+
+E.g. If the following resource is specified:
+
+```javascript
+{
+    name: 'statuses/update',
+    path: 'statuses/update.json',
+    methods: [ 'post' ],
+    params: {
+        foo: 'required'
+    }
+}
+```
+
+You can then request the resource by specifying its **name** OR its **path**:
+
+```javascript
+// GET a resource by specifying its `name`
+unio()
+    .use('...')
+    .get('statuses/update', params, callback)
+
+// GET a resource by specifying its `path`
+unio()
+    .use('...')
+    .get('statuses/update.json', params, callback)
+```
+
+####`methods` (Array)
+
+HTTP verbs that may be used to request the resource (allowed: "GET", "POST", "PUT", "DELETE", "PATCH").
+
+####`params` (Object)
+
+Object representing the parameters accepted by the resource. Each parameter must be marked "optional" or "required".
 
 -------
 

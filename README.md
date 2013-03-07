@@ -114,8 +114,7 @@ unio()
     .post('some/resource', { foo: 123 }, function (err, reply) {
         //...
     })
-
-
+    
 ```
 
 #API:

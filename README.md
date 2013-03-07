@@ -108,13 +108,14 @@ var apiSpec = {
     ]
 }
 
+// now we can use the new spec and make a request
 unio()
     .spec(apiSpec)
     .use('api-name')
     .post('some/resource', { foo: 123 }, function (err, reply) {
         //...
     })
-    
+
 ```
 
 #API:

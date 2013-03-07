@@ -1,98 +1,63 @@
 {
     "name": "twitter",
     "api_root": "https://api.twitter.com/1.1",
-    "resources": {
-        "account/settings":{
+    "resources": [
+        {
+            "name": "account/settings",
             "path": "account/settings.json",
             "methods": [ "get" ],
-            "params": [
-                {                    
-                },
-                {
+            "params": {
                     "oauth": "required"
-                }
-            ]
+            }
         },
-        "followers/ids": {
+        {
+            "name": "followers/ids",
             "path": "followers/ids.json",
             "methods": [ "get" ],
-            "params": [
-                {
-                    "screen_name": "optional"
-                },
-                {
-                    "oauth": "required"
-                }
-            ]
+            "params": {
+                "screen_name": "optional",
+                "oauth": "required"
+            }
         },
-        "statuses/update": {
+        {
+            "name": "statuses/update",
             "path": "statuses/update.json",
             "methods": [ "post" ],
-            "params": [
-                {
-                    "status": "required"
-                },
-                {
-                    "in_reply_to_status_id": "optional"
-                },
-                {
-                    "lat": "optional"
-                },
-                {
-                    "long": "optional"
-                },
-                {
-                    "place_id": "optional"
-                },
-                {
-                    "display_coordinates": "optional"
-                },
-                {
+            "params": {
+                    "status": "required",
+                    "in_reply_to_status_id": "optional",
+                    "lat": "optional",
+                    "long": "optional",
+                    "place_id": "optional",
+                    "display_coordinates": "optional",
                     "trim_user": "optional"
-                }
-            ]
+            }
         },
-        "search": {
+        {
+            "name": "search",
             "path": "http://search.twitter.com/search.json",
             "methods": [ "get" ],
-            "params": [
-                {
-                    "q": "required"
-                },
-                {
-                    "callback": "optional"
-                },
-                {
-                    "geocode": "optional"
-                },
-                {
-                    "lang": "optional"
-                },
-                {
-                    "locale": "optional"
-                },
-                {
-                    "page": "optional"
-                },
-                {
+            "params": {
+                    "q": "required",
+                    "callback": "optional",
+                    "geocode": "optional",
+                    "lang": "optional",
+                    "locale": "optional",
+                    "page": "optional",
                     "result_type": "optional"
-                }
-
-            ]
+            }
         },
-        "statuses/home_timeline": {
+        {
+            "name": "statuses/home_timeline",
             "path": "statuses/home_timeline.json",
             "methods": [ "get" ],
-            "params": [
-        
-            ]
+            "params": {}
         },
-        "statuses/destroy/:id": {
+        {
+            "name": "statuses/destroy/:id",
             "path": "statuses/destroy/:id.json",
             "methods": [ "post" ],
-            "params": [
-
-            ]
+            "params": {}
         }
-    }
+    ]
 }

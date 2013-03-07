@@ -208,7 +208,20 @@ Array of API resources.
 
 ##Defining a Resource
 
-Each object in the `resources` array represents a resource. Each resource must contain the following keys:
+Each object in the `resources` array represents a REST API resource. For example, a `GET user` resource taking three optional parameters (id, name, and location) would look like this:
+```javascript
+{
+    path: 'user',
+    methods: [ 'get' ],
+    params: {
+        id: 'optional',
+        name: 'optional',
+        location: 'optional'
+    }
+}
+```
+
+Each of the resource keys are described below:
 
 ####`path` (String)
 
@@ -216,7 +229,7 @@ URI where the resource is located, without a leading slash (e.g. **posts/newest*
 
 ####`name` (String)
 
-Optional name of the resource. When you make a request with unio, for example with `.get(resource, ...)`, you can specify the resource by its `name` value rather than by its `path`. Think of it like an alias `path` value for the resource.
+**Optional** name of the resource. When you make a request with unio, for example with `.get(resource, ...)`, you can specify the resource by its `name` value rather than by its `path`. Think of it like an alias `path` value for the resource.
 
 E.g. If the following resource is specified:
 

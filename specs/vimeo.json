@@ -1,0 +1,15 @@
+{
+  "name": "vimeo",
+  "api_root": "http://vimeo.com/api/rest/v2",
+  "resources": [{
+      "name": "videos/search",
+      "path": "?format=json&method=vimeo.videos.search",
+      "methods": ["get"],
+      "params": [{
+        "query": "required",
+        "per_page": "optional",
+        "summary_response": "optional",
+        "sort": "optional"
+      }]
+  }]
+}

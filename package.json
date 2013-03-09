@@ -9,6 +9,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha -R spec -t 10000 --recursive"
   },
+  "contributors":[
+    "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com)"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/ttezel/unio"

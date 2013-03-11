@@ -38,6 +38,8 @@ describe('unio', function () {
 
     var testTweetIdStr = null
 
+    var client = unio()
+
     it('facebook API - search', function (done) {
 
         var authUrl = 'https://graph.facebook.com/oauth/access_token'
@@ -69,7 +71,7 @@ describe('unio', function () {
                 access_token: accessToken
             }
 
-            unio()
+            client
                 .use('fb')
                 .get('search', params, function (err, reply) {
                     assert.equal(err, null)
@@ -94,8 +96,22 @@ describe('unio', function () {
             q: 'banana'
         }
 
-        unio()
+        client
             .use('twitter')
+            .get('search', params, function (err, reply) {
+                assert.equal(err, null)
+                validateSearchReply(reply)
+
+                done()
+            })
+    })
+
+    it('making request without .use defaults to last used API', function (done) {
+        var params = {
+            q: 'apple'
+        }
+
+        client
             .get('search', params, function (err, reply) {
                 assert.equal(err, null)
                 validateSearchReply(reply)
@@ -110,7 +126,7 @@ describe('unio', function () {
             oauth: config.twitter.oauth
         }
 
-        unio()
+        client
             .use('twitter')
             .post('statuses/update', params, function (err, reply) {
                 assert.equal(err, null)
@@ -131,7 +147,7 @@ describe('unio', function () {
             oauth: config.twitter.oauth
         }
 
-        unio()
+        client
             .use('twitter')
             .post('statuses/destroy/'+testTweetIdStr, params, function (err, reply) {
                 assert.equal(err, null, util.inspect(err, true, 10, true))
@@ -153,7 +169,7 @@ describe('unio', function () {
             }
         }
 
-        unio()
+        client
             .use('github')
             .get('authorizations', params, function (err, reply) {
                 assert.equal(err, null, util.inspect(err, true, 10, true))

@@ -28,6 +28,8 @@ npm install unio
 ```javascript
 var unio = require('unio')
 
+var client = unio()
+
 //
 // with the Facebook Search API
 //
@@ -36,7 +38,7 @@ var params = {
     access_token: 'YOUR_FB_ACCESS_TOKEN'
 }
 
-unio()
+client
     .use('fb')
     .get('search', params, function (err, reply) {
         console.log('first search result', reply.data[0])
@@ -45,7 +47,7 @@ unio()
 //
 // with the Twitter Search API
 //
-unio()
+client
     .use('twitter')
     .get('search', { q: 'banana' }, function (err, reply) {
         console.log('search results:', reply)
@@ -64,7 +66,7 @@ var params = {
     }
 }
 
-unio()
+client
     .use('twitter')
     .post('statuses/update', params, function (err, reply) {
         //...
@@ -73,7 +75,7 @@ unio()
 //
 // with the Github API
 //
-unio()
+client
     .use('github')
     .get('user', { access_token: 'ACCESS-TOKEN' }, function (err, reply) {
         //...
@@ -82,7 +84,7 @@ unio()
 //
 // import a JSON spec from the local filesystem
 //
-unio()
+client
     .spec('./path/to/json/file')
     .use('myspec')
     .post('blah', function (err, reply) {
@@ -108,8 +110,7 @@ var apiSpec = {
     ]
 }
 
-// add the spec to the client, then use it and start making requests!
-unio()
+client
     .spec(apiSpec)
     .use('api-name')
     .post('some/resource', { foo: 123 }, function (err, reply) {
@@ -122,7 +123,7 @@ unio()
 
 ##`.use(name)`
 
-Tells `unio` that the next request you make will be to the API whose spec has the name `name`.
+Tells `unio` that the next request you make will be to the API whose spec has the name `name`. If you don't call **.use()** before making a request, it will default to the last API that you called **.use()** with.
 
 ##`.spec(spec)`
     

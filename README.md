@@ -137,23 +137,23 @@ The specs that `unio` currently supports out-of-the-box are in the **specs** fol
 
 ##`.get(resource, [ params, callback ])`
 
-**GET** a REST API `resource`, with optional `params` object for the request, and an optional `callback` that has the following signature: `function (err, response, body)`.
+**GET** an API `resource`, with optional `params` object for the request, and an optional `callback` that looks like: `function (err, response, body) { ... }`.
 
 ##`.post(resource, [ params, callback ])`
 
-See `.get()` -> same thing but using **POST**.
+Same usage as **.get()**, but sends a **POST** request.
 
 ##`.patch(resource, [ params, callback ])`
 
-See `.get()` -> same thing but using **PATCH**.
+Same usage as **.get()**, but sends a **PATCH** request.
 
 ##`.put(resource, [ params, callback ])`
 
-See `.get()` -> same thing but using **PUT**.
+Same usage as **.get()**, but sends a **PUT** request.
 
 ##`.delete(resource, [ params, callback ])`
 
-See `.get()` -> same thing but using **DELETE**.
+Same usage as **.get()**, but sends a **DELETE** request.
 
 
 ##Defining a Unio Spec

@@ -73,8 +73,9 @@ describe('unio', function () {
 
             client
                 .use('fb')
-                .get('search', params, function (err, reply) {
+                .get('search', params, function (err, res, reply) {
                     assert.equal(err, null)
+                    assert.equal(res.statusCode, 200)
 
                     assert(reply)
                     assert(reply.data)
@@ -98,8 +99,9 @@ describe('unio', function () {
 
         client
             .use('twitter')
-            .get('search', params, function (err, reply) {
+            .get('search', params, function (err, res, reply) {
                 assert.equal(err, null)
+                assert.equal(res.statusCode, 200)
                 validateSearchReply(reply)
 
                 done()
@@ -112,8 +114,9 @@ describe('unio', function () {
         }
 
         client
-            .get('search', params, function (err, reply) {
+            .get('search', params, function (err, res, reply) {
                 assert.equal(err, null)
+                assert.equal(res.statusCode, 200)
                 validateSearchReply(reply)
 
                 done()
@@ -128,8 +131,9 @@ describe('unio', function () {
 
         client
             .use('twitter')
-            .post('statuses/update', params, function (err, reply) {
+            .post('statuses/update', params, function (err, res, reply) {
                 assert.equal(err, null)
+                assert.equal(res.statusCode, 200)
                 validateTweet(reply)
                 assert.equal(reply.text, params.status)
 
@@ -149,10 +153,11 @@ describe('unio', function () {
 
         client
             .use('twitter')
-            .post('statuses/destroy/'+testTweetIdStr, params, function (err, reply) {
+            .post('statuses/destroy/'+testTweetIdStr, params, function (err, res, reply) {
                 assert.equal(err, null, util.inspect(err, true, 10, true))
 
                 console.log('destroyed tweet:', reply.text)
+                assert.equal(res.statusCode, 200)
                 validateTweet(reply)
 
                 done()
@@ -171,8 +176,9 @@ describe('unio', function () {
 
         client
             .use('github')
-            .get('authorizations', params, function (err, reply) {
+            .get('authorizations', params, function (err, res, body) {
                 assert.equal(err, null, util.inspect(err, true, 10, true))
+                assert.equal(res.statusCode, 200)
 
                 console.log('github user reply', reply)
 

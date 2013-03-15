@@ -5,7 +5,7 @@
 
 The `Unio` client is an easily-extensible REST API Client that supports any REST API that can be described in JSON.
 
-The initiative behind `unio` is to describe REST APIs in simple, readable JSON files. This allows them to be imported into `unio`, and it will know automatically how to talk to the web service from the JSON spec. You can simply import the spec, and start making requests to the API right away. This makes it easy for you to test, use and reuse REST APIs by saving you the time of writing an API client for every new service that pops up.
+The initiative behind `unio` is to describe REST APIs in  a simple, readable JSON format. This allows them to be imported into `unio`, and it will know automatically how to talk to the web service from the JSON spec. You can simply import the spec, and start making requests to the API right away. This makes it easy for you to test, use and reuse REST APIs by saving you the time of writing an API client for every new service that pops up.
 
 Currently, the APIs implemented out-of-the-box with `unio` are:
 
@@ -40,8 +40,8 @@ var params = {
 
 client
     .use('fb')
-    .get('search', params, function (err, reply) {
-        console.log('first search result', reply.data[0])
+    .get('search', params, function (err, response, body) {
+        console.log('first search result', body.data[0])
     })
 
 //
@@ -49,8 +49,8 @@ client
 //
 client
     .use('twitter')
-    .get('search', { q: 'banana' }, function (err, reply) {
-        console.log('search results:', reply)
+    .get('search', { q: 'banana' }, function (err, response, body) {
+        console.log('search results:', body)
     })
 
 //
@@ -68,7 +68,7 @@ var params = {
 
 client
     .use('twitter')
-    .post('statuses/update', params, function (err, reply) {
+    .post('statuses/update', params, function (err, res, body) {
         //...
     })
 
@@ -77,7 +77,7 @@ client
 //
 client
     .use('github')
-    .get('user', { access_token: 'ACCESS-TOKEN' }, function (err, reply) {
+    .get('user', { access_token: 'ACCESS-TOKEN' }, function (err, res, body) {
         //...
     })
 
@@ -87,7 +87,7 @@ client
 client
     .spec('./path/to/json/file')
     .use('myspec')
-    .post('blah', function (err, reply) {
+    .post('blah', function (err, res, body) {
         //...
     })
 
@@ -113,7 +113,7 @@ var apiSpec = {
 client
     .spec(apiSpec)
     .use('api-name')
-    .post('some/resource', { foo: 123 }, function (err, reply) {
+    .post('some/resource', { foo: 123 }, function (err, res, body) {
         //...
     })
 
@@ -137,7 +137,7 @@ The specs that `unio` currently supports out-of-the-box are in the **specs** fol
 
 ##`.get(resource, [ params, callback ])`
 
-**GET** a REST API `resource`, with optional params object for the request, and an optional `callback` that has the following signature: `function (err, reply)`.
+**GET** a REST API `resource`, with optional `params` object for the request, and an optional `callback` that has the following signature: `function (err, response, body)`.
 
 ##`.post(resource, [ params, callback ])`
 

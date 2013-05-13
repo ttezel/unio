@@ -3,6 +3,15 @@
     "api_root": "https://graph.facebook.com",
     "resources": [
         {
+            "path": "oauth/access_token",
+            "methods": [ "get" ],
+            "params": {
+                "client_id": "required",
+                "client_secret": "required",
+                "grant_type": "required"
+            }
+        },
+        {
             "path": "search",
             "methods": [ "get" ],
             "params": {

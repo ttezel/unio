@@ -1,8 +1,9 @@
 {
     "name": "stackexchange",
     "api_root": "https://api.stackexchange.com/2.1",
-    "resources": {
-        "answers": {
+    "resources": [
+        {
+            "path": "answers",
             "methods": [ "get" ],
             "params": [
                 {
@@ -16,7 +17,8 @@
                 }
             ]
         },
-        "badges ": {
+        {
+            "path": "badges",
             "methods": [ "get" ],
             "params": [
                 {
@@ -30,5 +32,5 @@
                 }
             ]
         }
-    }
+    ]
 }

@@ -58,6 +58,22 @@
             "path": "statuses/destroy/:id.json",
             "methods": [ "post" ],
             "params": {}
+        },
+        {
+            "name": "statuses/show/:id",
+            "path": "statuses/show/:id.json",
+            "methods": [ "get" ],
+            "params": {
+                "id": "required"
+            }
+        },
+        {
+            "name": "geo/id/:place_id",
+            "path": "geo/id/:place_id.json",
+            "methods": [ "get" ],
+            "params": {
+                "place_id": "required"
+            }
         }
     ]
 }

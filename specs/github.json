@@ -1,8 +1,8 @@
 {
     "name": "github",
     "api_root": "https://api.github.com",
-    "resources": {
-        "authorizations": {
+    "resources": [
+        {
             "path": "authorizations",
             "methods": [ "post", "get" ],
             "params": [
@@ -23,7 +23,7 @@
                 }
             ]
         },
-        "access_token": {
+        {
             "path": "access_token",
             "methods": [ "get" ],
             "params": [
@@ -32,14 +32,15 @@
                 }
             ]
         },
-        "user": {
+        {
             "path": "user",
             "methods": [ "get" ],
             "params": [
 
             ]
         },
-        "users": {
+        {
+            "path": "users",
             "methods": [ "get" ],
             "params": [
                 {
@@ -47,5 +48,5 @@
                 }
             ]
         }
-    }
+    ]
 }

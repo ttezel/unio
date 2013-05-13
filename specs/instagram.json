@@ -1,0 +1,29 @@
+{
+    "name": "instagram",
+    "api_root": "https://api.instagram.com/v1",
+    "resources": [
+        {
+          "name": "tags/:id",
+          "path": "tags/:id",
+          "methods": [
+            "get"
+          ],
+          "params": {
+            "access_token": "required",
+            "id": "optional"
+          }
+        },
+        {
+          "name": "tags/:id/media/recent",
+          "path": "tags/:id/media/recent",
+          "methods": [
+            "get"
+          ],
+          "params": {
+            "min_id": "optional",
+            "max_id": "optional",
+            "access_token": "required"
+          }
+        }
+    ]
+}

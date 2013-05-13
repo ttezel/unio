@@ -12,6 +12,7 @@ Currently, the APIs implemented out-of-the-box with `unio` are:
 * **Facebook**
 * **Twitter**
 * **Github**
+* **Instagram**
 * **StackExchange**
 
 Feel free to fork and add new REST API specs!
@@ -92,7 +93,7 @@ client
     })
 
 //
-// add a new spec
+// add a new spec directly
 //
 var apiSpec = {
     name: 'api-name',
@@ -110,6 +111,7 @@ var apiSpec = {
     ]
 }
 
+// now use the newly added spec
 client
     .spec(apiSpec)
     .use('api-name')
@@ -218,7 +220,7 @@ Each object in the `resources` array represents a REST API resource. For example
         id: 'optional',
         name: 'optional',
         location: 'optional'
-    }
+    },
 }
 ```
 

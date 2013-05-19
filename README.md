@@ -36,7 +36,7 @@ var client = unio()
 //
 var params = {
     q: 'coffee',
-    access_token: 'YOUR_FB_ACCESS_TOKEN'
+    access_token: 'FB-ACCESS-TOKEN'
 }
 
 client
@@ -46,7 +46,21 @@ client
     })
 
 //
-// with the Twitter Search API
+// Make an FQL query
+//
+var params = {
+    q: 'SELECT first_name FROM user WHERE uid=588625709',
+    access_token: 'FB-ACCESS-TOKEN'
+}
+
+client
+    .use('fb')
+    .get('fql', params, function (err, res, body) {
+        console.log('results:', body.data)
+    })
+
+//
+// Use the Twitter Search API
 //
 client
     .use('twitter')
@@ -70,16 +84,21 @@ var params = {
 client
     .use('twitter')
     .post('statuses/update', params, function (err, res, body) {
-        //...
+        // ...
     })
 
 //
-// with the Github API
+// with the Instagram API
 //
+var params = {
+    id: 'snow',
+    access_token: 'INSTAGRAM-ACCESS-TOKEN'
+}
+
 client
-    .use('github')
-    .get('user', { access_token: 'ACCESS-TOKEN' }, function (err, res, body) {
-        //...
+    .use('instagram')
+    .get('tags/:id/media/recent', params, function (err, res, body) {
+        // ...
     })
 
 //
@@ -89,7 +108,7 @@ client
     .spec('./path/to/json/file')
     .use('myspec')
     .post('blah', function (err, res, body) {
-        //...
+        // ...
     })
 
 //
@@ -116,7 +135,7 @@ client
     .spec(apiSpec)
     .use('api-name')
     .post('some/resource', { foo: 123 }, function (err, res, body) {
-        //...
+        // ...
     })
 
 ```

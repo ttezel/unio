@@ -20,13 +20,30 @@
             }
         },
         {
-            "path": "me",
+            "path": ":id",
             "methods": [ "get" ],
             "params": {
                 "fields": "optional",
                 "access_token": "required"
             }
+        },
+        {
+            "path": ":id/picture",
+            "methods": [ "get" ],
+            "params": {
+                "id": "required",
+                "type": "optional",
+                "width": "optional",
+                "height": "optional",
+                "redirect": "optional"
+            }
+        },
+        {
+            "path": "fql",
+            "methods": [ "get" ],
+            "params": {
+               "q": "optional"
+            }
         }
-        
     ]
 }

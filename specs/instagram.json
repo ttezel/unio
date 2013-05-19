@@ -24,6 +24,47 @@
             "max_id": "optional",
             "access_token": "required"
           }
+        },
+        {
+          "path": "users/:userid",
+          "methods": [
+            "get"
+          ],
+          "params": {
+            "access_token": "required"
+          }
+        },
+        {
+          "path": "users/self/feed",
+          "methods": [
+            "get"
+          ],
+          "params": {
+            "access_token": "required"
+          }
+        },
+        {
+          "path": "users/:user_id/media/recent",
+          "methods": [
+            "get"
+          ],
+          "params": {
+            "access_token": "required",
+            "count": "optional",
+            "max_timestamp": "optional",
+            "min_timestamp": "optional",
+            "max_id": "optional",
+            "min_id": "optional"            
+          }
+        },
+        {
+          "path": "users/self/media/liked",
+          "methods": [
+            "get"
+          ],
+          "params": {
+            "access_token": "required"          
+          }
         }
     ]
 }

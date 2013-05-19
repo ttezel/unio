@@ -107,11 +107,11 @@ describe('unio - Facebook API', function () {
             })
     })
 
-    it('GET /fql resource using `SELECT first_name FROM user WHERE uid=588625709`', function (done) {
+    it('GET /fql resource using `SELECT first_name, pic FROM user WHERE uid=588625709`', function (done) {
         var client = unio()
 
         var params = {
-            q: 'SELECT first_name FROM user WHERE uid=588625709',
+            q: 'SELECT first_name, pic FROM user WHERE uid=588625709',
             access_token: fbAccessToken
         }
 

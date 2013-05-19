@@ -15,7 +15,7 @@ Currently, the APIs implemented out-of-the-box with `unio` are:
 * **Instagram**
 * **StackExchange**
 
-Feel free to fork and add new REST API specs!
+Feel free to fork and add new REST API specs! See the [Facebook spec](https://github.com/ttezel/unio/blob/master/specs/fb.json) and the [Instagram spec](https://github.com/ttezel/unio/blob/master/specs/instagram.json) as examples.
 
 
 #Install

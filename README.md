@@ -49,7 +49,7 @@ client
 // Make an FQL query
 //
 var params = {
-    q: 'SELECT first_name FROM user WHERE uid=588625709',
+    q: 'SELECT first_name, pic FROM user WHERE uid=588625709',
     access_token: 'FB-ACCESS-TOKEN'
 }
 

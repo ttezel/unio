@@ -5,7 +5,10 @@ exports.inspect = function (obj) {
     return util.inspect(obj, true, 10, true)
 }
 
-exports.validateTwitterSearchReply = function (reply) {
+exports.twitter = {}
+exports.instagram = {}
+
+exports.twitter.validateSearchReply = function (reply) {
     assert(reply)
     assert(reply.max_id)
     assert(reply.max_id_str)
@@ -13,10 +16,10 @@ exports.validateTwitterSearchReply = function (reply) {
     assert(Array.isArray(reply.results))
     assert(reply.results[0])
 
-    exports.validateTweet(reply.results[0])
+    exports.twitter.validateTweet(reply.results[0])
 }
 
-exports.validateTweet = function (tweet) {
+exports.twitter.validateTweet = function (tweet) {
     assert(tweet)
     assert(tweet.created_at, 'tweet didnt have creation time: '+exports.inspect(tweet))
     assert(tweet.from_user || tweet.user)
@@ -27,7 +30,7 @@ exports.validateTweet = function (tweet) {
     assert(tweet.text)
 }
 
-exports.validateTwitterUser = function (users) {
+exports.twitter.validateUser = function (users) {
     // normalize to array of users before validation
     if (!Array.isArray(users)) 
         users = [ users ]
@@ -42,7 +45,7 @@ exports.validateTwitterUser = function (users) {
     })
 }
 
-exports.validateTwitterPlace = function (twitterPlaces) {
+exports.twitter.validatePlace = function (twitterPlaces) {
     // normalize to array of users before validation
     if (!Array.isArray(twitterPlaces)) 
         twitterPlaces = [ twitterPlaces ]
@@ -55,4 +58,21 @@ exports.validateTwitterPlace = function (twitterPlaces) {
         assert(place.country)
         assert(place.full_name)
     })
+}
+
+exports.instagram.validateMedia = function (media) {
+    assert(media)
+    assert(media.id)
+    assert(media.tags)
+    assert(media.likes)
+    assert(media.images)
+}
+
+exports.instagram.validateUser = function (user) {
+    assert(user)
+    assert(user.id)
+    assert(user.username)
+    assert(user.full_name)
+    assert(user.profile_picture)
+    assert(user.counts)
 }

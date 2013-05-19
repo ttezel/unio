@@ -1,6 +1,7 @@
 var assert = require('assert')
 var config = require('../config')
 var unio = require('../lib/unio')
+var helper = require('./helper')
 
 describe('unio - Instagram API', function () {
 
@@ -52,11 +53,7 @@ describe('unio - Instagram API', function () {
 
                 var firstMedia = body.data[0];
 
-                assert(firstMedia)
-                assert(firstMedia.id)
-                assert(firstMedia.tags)
-                assert(firstMedia.likes)
-                assert(firstMedia.images)
+                helper.instagram.validateMedia(firstMedia)
                 
                 done()
             })
@@ -81,12 +78,7 @@ describe('unio - Instagram API', function () {
 
                 var user = body.data
 
-                assert(user)
-                assert(user.id)
-                assert(user.username)
-                assert(user.full_name)
-                assert(user.profile_picture)
-                assert(user.counts)
+                helper.instagram.validateUser(user)
                 
                 done()
             })
@@ -110,12 +102,7 @@ describe('unio - Instagram API', function () {
 
                 var firstMedia = body.data[0];
 
-                assert(firstMedia)
-                assert(firstMedia.id)
-                assert(firstMedia.tags)
-                assert(firstMedia.filter)
-                assert(firstMedia.likes)
-                assert(firstMedia.images)
+                helper.instagram.validateMedia(firstMedia)
                 
                 done()
             })
@@ -140,11 +127,7 @@ describe('unio - Instagram API', function () {
 
                 var firstMedia = body.data[0];
 
-                assert(firstMedia)
-                assert(firstMedia.id)
-                assert(firstMedia.tags)
-                assert(firstMedia.likes)
-                assert(firstMedia.images)
+                helper.instagram.validateMedia(firstMedia)
                 
                 done()
             })
@@ -168,12 +151,7 @@ describe('unio - Instagram API', function () {
 
                 var firstMedia = body.data[0];
 
-                assert(firstMedia)
-                assert(firstMedia.id)
-                assert(firstMedia.tags)
-                assert(firstMedia.filter)
-                assert(firstMedia.likes)
-                assert(firstMedia.images)
+                helper.instagram.validateMedia(firstMedia)
                 
                 done()
             })

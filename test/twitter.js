@@ -18,7 +18,7 @@ describe('unio - Twitter API', function () {
             .get('search', params, function (err, res, reply) {
                 assert.equal(err, null)
                 assert.equal(res.statusCode, 200)
-                helper.validateTwitterSearchReply(reply)
+                helper.twitter.validateSearchReply(reply)
 
                 done()
             })
@@ -46,8 +46,10 @@ describe('unio - Twitter API', function () {
                 .post('statuses/destroy/:id', params, function (err, res, reply) {
                     assert.equal(err, null, 'error: '+util.inspect(err, true, 10, true))
 
-                    assert.equal(res.statusCode, 200)
-                    helper.validateTweet(reply)
+                    var errMsg = 'statusCode: '+res.statusCode+'. res.body: '+res.body
+
+                    assert.equal(res.statusCode, 200, errMsg)
+                    helper.twitter.validateTweet(reply)
 
                     done()
                 })
@@ -70,7 +72,7 @@ describe('unio - Twitter API', function () {
                 var errMsg = 'statusCode: '+res.statusCode+'. res.body: '+res.body
 
                 assert.equal(res.statusCode, 200, errMsg)
-                helper.validateTwitterPlace(reply)
+                helper.twitter.validatePlace(reply)
 
                 done()
             })
@@ -96,7 +98,7 @@ exports.postTweet = function (cb) {
             if (err) return cb(err)
 
             assert.equal(res.statusCode, 200)
-            helper.validateTweet(reply)
+            helper.twitter.validateTweet(reply)
             assert.equal(reply.text, params.status)
 
             return cb(null, reply)

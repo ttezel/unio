@@ -62,9 +62,19 @@ client
 //
 // Use the Twitter Search API
 //
+var params = {
+    q: 'banana',
+    oauth: {
+        consumer_key:       '...',
+        consumer_secret:    '...',
+        token:              '...',
+        token_secret:       '...',
+    }
+}
+
 client
     .use('twitter')
-    .get('search', { q: 'banana' }, function (err, response, body) {
+    .get('search/tweets', params, function (err, response, body) {
         console.log('search results:', body)
     })
 

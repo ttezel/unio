@@ -4,18 +4,19 @@ var config = require('../config')
 var unio = require('../lib/unio')
 var helper = require('./helper')
 
-describe('unio - Twitter API', function () {
+describe.only('unio - Twitter API', function () {
 
-    it('GET /search resource', function (done) {
+    it('GET /search/tweets resource', function (done) {
         var client = unio()
 
         var params = {
-            q: 'banana'
+            q: 'banana',
+            oauth: config.twitter.oauth
         }
 
         client
             .use('twitter')
-            .get('search', params, function (err, res, reply) {
+            .get('search/tweets', params, function (err, res, reply) {
                 assert.equal(err, null)
                 assert.equal(res.statusCode, 200)
                 helper.twitter.validateSearchReply(reply)

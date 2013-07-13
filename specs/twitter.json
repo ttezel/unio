@@ -34,8 +34,8 @@
             }
         },
         {
-            "name": "search",
-            "path": "http://search.twitter.com/search.json",
+            "name": "search/tweets",
+            "path": "search/tweets.json",
             "methods": [ "get" ],
             "params": {
                     "q": "required",

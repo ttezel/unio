@@ -10,13 +10,11 @@ exports.instagram = {}
 
 exports.twitter.validateSearchReply = function (reply) {
     assert(reply)
-    assert(reply.max_id)
-    assert(reply.max_id_str)
-    assert(reply.results)
-    assert(Array.isArray(reply.results))
-    assert(reply.results[0])
+    assert(reply.statuses)
+    assert(Array.isArray(reply.statuses))
+    assert(reply.statuses[0])
 
-    exports.twitter.validateTweet(reply.results[0])
+    exports.twitter.validateTweet(reply.statuses[0])
 }
 
 exports.twitter.validateTweet = function (tweet) {

@@ -54,9 +54,47 @@
             "params": {}
         },
         {
+            "name": "statuses/mentions_timeline",
+            "path": "statuses/mentions_timeline.json",
+            "methods": [ "get" ],
+            "params": {}
+        },
+        {
+            "name": "statuses/update",
+            "path": "statuses/update.json",
+            "methods": [ "post" ],
+            "params": {}
+        },
+        {
+            "name": "statuses/user_timeline",
+            "path": "statuses/user_timeline.json",
+            "methods": [ "get" ],
+            "params": {}
+        },
+        {
+            "name": "statuses/retweets_of_me",
+            "path": "statuses/retweets_of_me.json",
+            "methods": [ "get" ],
+            "params": {}
+        },
+        {
             "name": "statuses/destroy/:id",
             "path": "statuses/destroy/:id.json",
             "methods": [ "post" ],
+            "params": {
+                "id": "required"
+            }
+        },
+        {
+            "name": "statuses/retweet/:id",
+            "path": "statuses/retweet/:id.json",
+            "methods": [ "post" ],
+            "params": {}
+        },
+        {
+            "name": "statuses/retweets/:id",
+            "path": "statuses/retweets/:id.json",
+            "methods": [ "get" ],
             "params": {}
         },
         {

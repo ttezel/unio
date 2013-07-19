@@ -32,6 +32,15 @@
             }
         },
         {
+            "path": ":id/feed",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required",
+                "message": "required",
+                "privacy": "optional"
+            }
+        },
+        {
             "path": ":id/picture",
             "methods": [ "get" ],
             "params": {

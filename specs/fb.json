@@ -65,6 +65,17 @@
             }
         },
         {
+            "path": ":id/checkins",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required",
+                "place": "required",
+                "coordinates": "optional",
+                "message": "optional",
+                "tags": "optional"
+            }
+        },
+        {
             "path": ":id/picture",
             "methods": [ "get" ],
             "params": {

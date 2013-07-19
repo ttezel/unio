@@ -16,6 +16,10 @@
             "methods": [ "get" ],
             "params": {
                 "q": "optional",
+                "type": "optional",
+                "center": "optional",
+                "distance": "optional",
+                "fields": "optional",
                 "access_token": "required"
             }
         },

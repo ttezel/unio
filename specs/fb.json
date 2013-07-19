@@ -41,6 +41,21 @@
             }
         },
         {
+            "path": ":id/likes",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required"
+            }
+        },
+        {
+            "path": ":id/comments",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required",
+                "message": "required"
+            }
+        },
+        {
             "path": ":id/picture",
             "methods": [ "get" ],
             "params": {

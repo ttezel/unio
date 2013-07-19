@@ -37,7 +37,16 @@
             "params": {
                 "access_token": "required",
                 "message": "required",
-                "privacy": "optional"
+                "privacy": "optional",
+                "message": "optional",
+                "picture": "optional",
+                "link": "optional",
+                "name": "optional",
+                "caption": "optional",
+                "description": "optional",
+                "source": "optional",
+                "place": "optional",
+                "tags": "optional"
             }
         },
         {

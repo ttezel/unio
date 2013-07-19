@@ -35,7 +35,6 @@
             "path": ":id/picture",
             "methods": [ "get" ],
             "params": {
-                "id": "required",
                 "type": "optional",
                 "width": "optional",
                 "height": "optional",

@@ -16,6 +16,10 @@
             "methods": [ "get" ],
             "params": {
                 "q": "optional",
+                "type": "optional",
+                "center": "optional",
+                "distance": "optional",
+                "fields": "optional",
                 "access_token": "required"
             }
         },
@@ -25,6 +29,50 @@
             "params": {
                 "fields": "optional",
                 "access_token": "required"
+            }
+        },
+        {
+            "path": ":id/feed",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required",
+                "message": "required",
+                "privacy": "optional",
+                "message": "optional",
+                "picture": "optional",
+                "link": "optional",
+                "name": "optional",
+                "caption": "optional",
+                "description": "optional",
+                "source": "optional",
+                "place": "optional",
+                "tags": "optional"
+            }
+        },
+        {
+            "path": ":id/likes",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required"
+            }
+        },
+        {
+            "path": ":id/comments",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required",
+                "message": "required"
+            }
+        },
+        {
+            "path": ":id/checkins",
+            "methods": [ "post" ],
+            "params": {
+                "access_token": "required",
+                "place": "required",
+                "coordinates": "optional",
+                "message": "optional",
+                "tags": "optional"
             }
         },
         {

@@ -2,7 +2,7 @@ var assert = require('assert')
 var config = require('../config')
 var unio = require('../lib/unio')
 
-describe('unio - Facebook API', function () {
+describe.only('unio - Facebook API', function () {
     var fbAccessToken = null
 
     // use unio to get a facebook access token
@@ -83,12 +83,35 @@ describe('unio - Facebook API', function () {
             })
     })
 
-    it('GET /:id/picture resource', function (done) {
+    it('GET /:id/picture resource with graph id', function (done) {
         var client = unio()
 
         var params = {
             id: '588625709',
             type: 'small',
+            access_token: fbAccessToken,
+            redirect: false // gets JSON back instead of the raw image
+        }
+
+        client
+            .use('fb')
+            .get(':id/picture', params, function (err, res, reply) {
+                assert.equal(err, null)
+                assert.equal(res.statusCode, 200)
+
+                assert(reply)
+                assert(reply.data)
+                assert(reply.data.url)
+
+                done()
+            })
+    })
+
+    it('GET /:id/picture resource with name', function (done) {
+        var client = unio()
+
+        var params = {
+            id: 'shaverm',
             access_token: fbAccessToken,
             redirect: false // gets JSON back instead of the raw image
         }

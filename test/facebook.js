@@ -2,7 +2,7 @@ var assert = require('assert')
 var config = require('../config')
 var unio = require('../lib/unio')
 
-describe.only('unio - Facebook API', function () {
+describe('unio - Facebook API', function () {
     var fbAccessToken = null
 
     // use unio to get a facebook access token

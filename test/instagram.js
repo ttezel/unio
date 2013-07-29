@@ -3,7 +3,7 @@ var config = require('../config')
 var unio = require('../lib/unio')
 var helper = require('./helper')
 
-describe('unio - Instagram API', function () {
+describe.skip('unio - Instagram API', function () {
 
     it('GET tags/:id resource', function (done) {
         var client = unio()

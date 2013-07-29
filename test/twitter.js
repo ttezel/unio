@@ -4,7 +4,7 @@ var config = require('../config')
 var unio = require('../lib/unio')
 var helper = require('./helper')
 
-describe.only('unio - Twitter API', function () {
+describe('unio - Twitter API', function () {
 
     it('GET /search/tweets resource', function (done) {
         var client = unio()

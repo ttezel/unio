@@ -24,6 +24,7 @@
             "methods": [ "get" ],
             "params": {
                 "fields": "optional",
+                "id": "required",
                 "access_token": "required"
             }
         },

@@ -15,21 +15,21 @@
             "path": "search",
             "methods": [ "get" ],
             "params": {
+                "access_token": "required",
                 "q": "optional",
                 "type": "optional",
                 "center": "optional",
                 "distance": "optional",
-                "fields": "optional",
-                "access_token": "required"
+                "fields": "optional"
             }
         },
         {
             "path": ":id",
             "methods": [ "get" ],
             "params": {
-                "fields": "optional",
+                "access_token": "required",
                 "id": "required",
-                "access_token": "required"
+                "fields": "optional"
             }
         },
         {
@@ -37,6 +37,7 @@
             "methods": [ "post" ],
             "params": {
                 "access_token": "required",
+                "id": "required",
                 "message": "required",
                 "privacy": "optional",
                 "message": "optional",

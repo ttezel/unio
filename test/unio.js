@@ -22,4 +22,11 @@ describe('unio behavior', function () {
 
         done()
     })
+
+    it('rest methods return a stream', function() {
+        client.use('twitter')
+        var stream = client.get('search/tweets', { q: 'banana' })
+
+        assert(typeof stream.pipe !== 'undefined')
+    })
 })
